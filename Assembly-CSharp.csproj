@@ -177,6 +177,7 @@
     <None Include="Assets\Assets\SteamVR\InteractionSystem\Teleport\Shaders\Highlight.shader" />
     <None Include="Assets\Assets\Vive-Teleporter\LICENSE.txt" />
     <None Include="Assets\Assets\Vive-Teleporter\Shader\FadeBlack.shader" />
+    <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
     <None Include="Assets\Assets\Vive-Teleporter\README.txt" />
     <None Include="Assets\Assets\SteamVR\Resources\SteamVR_SphericalProjection.shader" />
     <None Include="Assets\Assets\SteamVR\Resources\SteamVR_AlphaOut.shader" />

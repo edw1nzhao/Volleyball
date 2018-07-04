@@ -76,7 +76,7 @@ public class Pickup : MonoBehaviour
             ballHit = false;
         }
     }
-    /*
+    
     private void OnTriggerEnter(Collider col) {
         if (col.CompareTag("Pickupable")) {
             ballHit = true;
