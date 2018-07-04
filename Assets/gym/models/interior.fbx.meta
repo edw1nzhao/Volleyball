@@ -1,0 +1,193 @@
+fileFormatVersion: 2
+guid: a0df6c5a6bde97f4e8c4c654787e62c3
+timeCreated: 1496576099
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Cube
+    100002: floor
+    100004: //RootNode
+    100006: Camera
+    100008: Cube.009
+    100010: Lamp
+    100012: railing
+    100014: shadow
+    100016: stairs
+    100018: wall
+    100020: windows
+    100022: Cylinder
+    100024: doors_3
+    100026: doors_3.001
+    100028: doors_3.002
+    100030: doors_3.003
+    100032: doors_4
+    100034: doors_4.001
+    100036: doors_4.002
+    100038: doors_4_l
+    100040: doors_4_l.001
+    100042: doors_4_l.002
+    100044: doors_4_r
+    100046: doors_4_r.001
+    100048: doors_4_r.002
+    400000: Cube
+    400002: floor
+    400004: //RootNode
+    400006: Camera
+    400008: Cube.009
+    400010: Lamp
+    400012: railing
+    400014: shadow
+    400016: stairs
+    400018: wall
+    400020: windows
+    400022: Cylinder
+    400024: doors_3
+    400026: doors_3.001
+    400028: doors_3.002
+    400030: doors_3.003
+    400032: doors_4
+    400034: doors_4.001
+    400036: doors_4.002
+    400038: doors_4_l
+    400040: doors_4_l.001
+    400042: doors_4_l.002
+    400044: doors_4_r
+    400046: doors_4_r.001
+    400048: doors_4_r.002
+    2300000: Cube
+    2300002: floor
+    2300004: Cube.009
+    2300006: railing
+    2300008: shadow
+    2300010: stairs
+    2300012: wall
+    2300014: windows
+    2300016: Cylinder
+    2300018: doors_3
+    2300020: doors_3.001
+    2300022: doors_3.002
+    2300024: doors_3.003
+    2300026: doors_4
+    2300028: doors_4.001
+    2300030: doors_4.002
+    2300032: doors_4_l
+    2300034: doors_4_l.001
+    2300036: doors_4_l.002
+    2300038: doors_4_r
+    2300040: doors_4_r.001
+    2300042: doors_4_r.002
+    3300000: Cube
+    3300002: floor
+    3300004: Cube.009
+    3300006: railing
+    3300008: shadow
+    3300010: stairs
+    3300012: wall
+    3300014: windows
+    3300016: Cylinder
+    3300018: doors_3
+    3300020: doors_3.001
+    3300022: doors_3.002
+    3300024: doors_3.003
+    3300026: doors_4
+    3300028: doors_4.001
+    3300030: doors_4.002
+    3300032: doors_4_l
+    3300034: doors_4_l.001
+    3300036: doors_4_l.002
+    3300038: doors_4_r
+    3300040: doors_4_r.001
+    3300042: doors_4_r.002
+    4300000: floor
+    4300002: Cube
+    4300004: shadow
+    4300006: Cube.009
+    4300008: railing
+    4300010: stairs
+    4300012: windows
+    4300014: wall
+    4300016: Cylinder
+    4300018: doors_4_l.002
+    4300020: doors_4.002
+    4300022: doors_4_r.002
+    4300024: doors_4_r.001
+    4300026: doors_4.001
+    4300028: doors_4_l.001
+    4300030: doors_3.002
+    4300032: doors_3.003
+    4300034: doors_4_l
+    4300036: doors_4
+    4300038: doors_4_r
+    4300040: doors_3
+    4300042: doors_3.001
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
