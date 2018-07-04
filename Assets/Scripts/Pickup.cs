@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pickup : MonoBehaviour{
-    private SteamVR_Controller.Device Controller { get { return SteamVR_Controller.Input((int) trackedObj.index); } }
+public class Pickup : MonoBehaviour
+{
+    private SteamVR_Controller.Device Controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
     private readonly Valve.VR.EVRButtonId trigger = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
     private SteamVR_TrackedObject trackedObj;
 
@@ -12,6 +13,7 @@ public class Pickup : MonoBehaviour{
     private FixedJoint fJoint;
 
     private bool throwing;
+    private bool ballHit;
 
     private void Start() {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
@@ -55,6 +57,44 @@ public class Pickup : MonoBehaviour{
             rb.maxAngularVelocity = rb.angularVelocity.magnitude;
             throwing = false;
         }
+
+
+        if (ballHit) {
+            Transform origin = trackedObj.origin;
+
+            if (origin == null) {
+                origin = trackedObj.transform.parent;
+            }
+
+            Debug.Log("origin", origin);
+
+            rb.velocity = origin.TransformVector(Controller.velocity);
+            rb.angularVelocity = origin.TransformVector(Controller.angularVelocity * 0.25f);
+
+            rb.maxAngularVelocity = rb.angularVelocity.magnitude;
+
+            ballHit = false;
+        }
+    }
+    /*
+    private void OnTriggerEnter(Collider col) {
+        if (col.CompareTag("Pickupable")) {
+            ballHit = true;
+        }
+    }
+    
+
+    private void HitBall() {
+        Transform origin = trackedObj.origin;
+        if (origin == null) {
+            origin = trackedObj.transform.parent;
+        }
+
+        rb.velocity = origin.TransformVector(Controller.velocity);
+        rb.angularVelocity = origin.TransformVector(Controller.angularVelocity * 0.25f);
+
+        rb.maxAngularVelocity = rb.angularVelocity.magnitude;
+        throwing = false;
     }
 
     /**
