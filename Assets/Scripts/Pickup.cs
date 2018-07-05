@@ -14,8 +14,9 @@ public class Pickup : MonoBehaviour
 
     private bool throwing;
     private bool ballHit;
+    private bool triggerHeld;
 
-    private void Start() {
+    void Start() {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
         fJoint = GetComponent<FixedJoint>();
     }
@@ -24,15 +25,17 @@ public class Pickup : MonoBehaviour
      * Pick up object when trigger is pulled.
      * When released trigger, drop object.
      */
-    private void Update() {
+    void Update() {
         if (Controller != null) {
             var device = SteamVR_Controller.Input((int)trackedObj.index);
 
             if (Controller.GetPressDown(trigger)) {
+                triggerHeld = true;
                 PickUp();
             }
 
             if (Controller.GetPressUp(trigger)) {
+                triggerHeld = false;
                 Drop();
             }
         }
@@ -44,7 +47,7 @@ public class Pickup : MonoBehaviour
      * Multiplied by 0.25 to reduce rotational speed when flying.
      * Immediately changed throwing to false to prevent continously adding velocity.
      */
-    private void FixedUpdate() {
+    void FixedUpdate() {
         if (throwing) {
             Transform origin = trackedObj.origin;
             if (origin == null) {
@@ -52,10 +55,14 @@ public class Pickup : MonoBehaviour
             }
 
             rb.velocity = origin.TransformVector(Controller.velocity);
-            rb.angularVelocity = origin.TransformVector(Controller.angularVelocity * 0.25f);
+            rb.angularVelocity = origin.TransformVector(Controller.angularVelocity);
 
             rb.maxAngularVelocity = rb.angularVelocity.magnitude;
             throwing = false;
+        }
+
+        if (triggerHeld && ballHit) {
+            PickUp();
         }
 
 
@@ -68,23 +75,15 @@ public class Pickup : MonoBehaviour
 
             Debug.Log("origin", origin);
 
-            rb.velocity = origin.TransformVector(Controller.velocity);
-            rb.angularVelocity = origin.TransformVector(Controller.angularVelocity * 0.25f);
+            rb.velocity = origin.TransformVector(Controller.velocity * 1.5f);
+            rb.angularVelocity = origin.TransformVector(Controller.angularVelocity);
 
             rb.maxAngularVelocity = rb.angularVelocity.magnitude;
-
-            ballHit = false;
         }
     }
-    
-    private void OnTriggerEnter(Collider col) {
-        if (col.CompareTag("Pickupable")) {
-            ballHit = true;
-        }
-    }
-    
 
-    private void HitBall() {
+
+    void HitBall() {
         Transform origin = trackedObj.origin;
         if (origin == null) {
             origin = trackedObj.transform.parent;
@@ -101,17 +100,25 @@ public class Pickup : MonoBehaviour
      * While trigger is held, checks and make sure the object
      * is a "pickupable" object.
      */
-    private void OnTriggerStay(Collider other) {
+    void OnTriggerStay(Collider other) {
         if (other.CompareTag("Pickupable")) {
             obj = other.gameObject;
         }
     }
 
+    void OnTriggerEnter(Collider col) {
+        if (col.CompareTag("Pickupable")) {
+            ballHit = true;
+        }
+    }
     /**
      * Release trigger result in no object held!
      */
-    private void OnTriggerExit(Collider other) {
+    void OnTriggerExit(Collider other) {
+        Debug.Log("False");
+
         obj = null;
+        ballHit = false;
     }
 
     /**
@@ -119,7 +126,7 @@ public class Pickup : MonoBehaviour
      * the object from flying around.
      * 
      */
-    private void PickUp() {
+    void PickUp() {
         if (obj != null) {
             fJoint.connectedBody = obj.GetComponent<Rigidbody>();
             throwing = false;
@@ -134,7 +141,7 @@ public class Pickup : MonoBehaviour
      * Gets rid of fjoint
      * Intiates throwing!
      */
-    private void Drop() {
+    void Drop() {
         if (fJoint.connectedBody != null) {
             rb = fJoint.connectedBody;
             fJoint.connectedBody = null;

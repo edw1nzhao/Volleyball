@@ -167,6 +167,8 @@
     <Compile Include="Assets\Assets\Vive-Teleporter\Scripts\TeleportVive.cs" />
     <Compile Include="Assets\Assets\Vive-Teleporter\Scripts\ViveNavMesh.cs" />
     <Compile Include="Assets\Assets\Vive-Teleporter\Scripts\ViveNavMeshEditor.cs" />
+    <Compile Include="Assets\Scripts\Controller.cs" />
+    <Compile Include="Assets\Scripts\DontGoThroughThings.cs" />
     <Compile Include="Assets\Scripts\Pickup.cs" />
     <None Include="Assets\Assets\SteamVR\Resources\SteamVR_Fade.shader" />
     <None Include="Assets\Assets\SteamVR\Resources\SteamVR_ClearAll.shader" />
