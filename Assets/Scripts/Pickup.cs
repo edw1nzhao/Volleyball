@@ -44,7 +44,6 @@ public class Pickup : MonoBehaviour
     /**
      * Fixed update since it's physics.
      * Calculate the velocity as the object flies from the controller location.
-     * Multiplied by 0.25 to reduce rotational speed when flying.
      * Immediately changed throwing to false to prevent continously adding velocity.
      */
     void FixedUpdate() {
@@ -61,12 +60,13 @@ public class Pickup : MonoBehaviour
             throwing = false;
         }
 
+        // Changed into else if. If not, then change to only if
+        // Check if trigger && ballhit, then change physics of 
+        // Hitting the ball to have it stick
+        // Look into hitting a ball and only sending it downwards?
         if (triggerHeld && ballHit) {
             PickUp();
-        }
-
-
-        if (ballHit) {
+        } else if (ballHit) {
             Transform origin = trackedObj.origin;
 
             if (origin == null) {
@@ -90,7 +90,7 @@ public class Pickup : MonoBehaviour
         }
 
         rb.velocity = origin.TransformVector(Controller.velocity);
-        rb.angularVelocity = origin.TransformVector(Controller.angularVelocity * 0.25f);
+        rb.angularVelocity = origin.TransformVector(Controller.angularVelocity * 0.5f);
 
         rb.maxAngularVelocity = rb.angularVelocity.magnitude;
         throwing = false;
@@ -101,16 +101,17 @@ public class Pickup : MonoBehaviour
      * is a "pickupable" object.
      */
     void OnTriggerStay(Collider other) {
-        if (other.CompareTag("Pickupable")) {
+        if (other.CompareTag("Pickupable") && triggerHeld) {
             obj = other.gameObject;
         }
     }
 
     void OnTriggerEnter(Collider col) {
-        if (col.CompareTag("Pickupable")) {
+        if (col.CompareTag("Pickupable") && !triggerHeld) {
             ballHit = true;
         }
     }
+
     /**
      * Release trigger result in no object held!
      */
